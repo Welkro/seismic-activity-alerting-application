@@ -88,10 +88,6 @@ class MyClient(EasySeedLinkClient):
         x_values = [start_time + sec * 1000 for sec in x_values_seconds]
         y_values = trace.data.tolist()
 
-        # Print the new amplitude range
-        print(
-            f"Filtered data amplitude range: {min(y_values)} to {max(y_values)}")
-
         for x, y in zip(x_values, y_values):
             self.data.append((x, y))
             self.append_to_chart()
