@@ -204,6 +204,10 @@ Integrate real-time seismic data into the application and customize the visualiz
 
 Deploy the application on a local server or a cloud platform to enable real-time monitoring. Ensure the environment is appropriately configured and the necessary libraries and dependencies are installed.
 
+### The End Result
+
+![1718622906464](image/README/1718622906464.png)
+
 ## Conclusion
 
 In this article, we have explored the development of a real-time Python seismic hazard mapping application using LightningChart
