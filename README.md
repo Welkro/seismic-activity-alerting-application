@@ -206,9 +206,8 @@ Deploy the application on a local server or a cloud platform to enable real-time
 
 ### The End Result
 
-![1718622906464](image/README/1718622906464.png)
+![1718623057472](image/README/1718623057472.png)
 
 ## Conclusion
 
-In this article, we have explored the development of a real-time Python seismic hazard mapping application using LightningChart
-Python. By leveraging the power of Python and high-performance charting tools, we can create dynamic and responsive visualizations for seismic data. This application enhances our ability to monitor and analyze seismic activity and contributes to the broader goal of mitigating earthquake risks. The benefits of using LightningChart Python for visualizing data are manifold, including high performance, customization options, and real-time data updates, making it an ideal choice for seismic hazard mapping applications.
+In this article, we have explored the development of a real-time Python seismic hazard mapping application using LightningChart Python. By leveraging the power of Python and high-performance charting tools, we can create dynamic and responsive visualizations for seismic data. This application enhances our ability to monitor and analyze seismic activity and contributes to the broader goal of mitigating earthquake risks. The benefits of using LightningChart Python for visualizing data are manifold, including high performance, customization options, and real-time data updates, making it an ideal choice for seismic hazard mapping applications.
