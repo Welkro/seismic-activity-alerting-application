@@ -93,7 +93,7 @@ Our application will use the `ChartXY` type from LightningChart to create a dyna
 
 ### Building the Real-time Application
 
-Here’s a step-by-step guide to building the application:
+Here's a step-by-step guide to building the application:
 
 1. **Initialize the Chart:**
 
