@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Seismic hazard mapping applications, pivotal in monitoring and assessing earthquake risks, provide real-time data visualization and analysis for informed decision-making by scientists, engineers, and policymakers. In the era of technological advancement, Python has emerged as a potent tool for developing these applications. This article, specifically tailored for our audience of scientists, engineers, and policymakers, delves into the development of a real-time Python seismic hazard mapping application, showcasing the use of LightningChart Python and other essential libraries.
+Seismic hazard mapping applications, pivotal in monitoring and assessing earthquake risks, provide real-time data visualization and analysis for informed decision-making by scientists, engineers, and policymakers. In the era of technological advancement, Python has emerged as a potent tool for developing these applications. This article delves into the development of a real-time Python seismic hazard mapping application, showcasing the use of LightningChart Python and other essential libraries.
 
 ## What is a Seismic Hazard Mapping Application?
 
