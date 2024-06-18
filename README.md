@@ -36,7 +36,7 @@ LightningChart Python is optimized for performance, ensuring smooth and responsi
 
 ### Installing Python and Necessary Libraries
 
-To develop a Python seismic hazard mapping application, you need to install Python and several essential libraries. Here’s a quick setup guide:
+To develop a Python seismic hazard mapping application, you need to install Python and several essential libraries. Here's a quick setup guide:
 
 1. **Install Python:** Download and install the latest version of Python from the [official website](https://www.python.org/).
 2. **Install Libraries:** Use `pip` to install the required libraries:
@@ -46,12 +46,12 @@ To develop a Python seismic hazard mapping application, you need to install Pyth
 
 ### Overview of Libraries Used
 
-- **ObsPy:** A Python framework for processing seismological data.
-- **LightningChart:** A high-performance charting library for visualizing data in real-time.
+- **ObsPy:** A Python framework for processing seismological data. ([documentation](https://docs.obspy.org/))
+- **LightningChart Python:** A high-performance charting library for visualizing data in real-time. ([documentation](https://lightningchart.com/python-charts/docs/))
 
 ### Setting Up Your Development Environment
 
-Set up your development environment by creating a new Python project and installing the necessary libraries. For an enhanced coding experience, use an Integrated Development Environment (IDE) like PyCharm or VSCode.
+Set up your development environment by creating a new Python project and installing the necessary libraries. For a smooth experience, use an Integrated Development Environment (IDE) like PyCharm or VSCode.
 
 ## Acquiring and Processing Earthquake Data
 
@@ -89,7 +89,7 @@ Applying this lowpass filter ensures the data is clean and ready for accurate vi
 
 ### Overview of the Chart Types to be Used
 
-Our application will use the `ChartXY` type from LightningChart to create a dynamic line chart that visualizes seismic data in real time.
+Our application will use the `ChartXY` type from LightningChart Python to create a dynamic line chart that visualizes seismic data in real time.
 
 ### Building the Real-time Application
 
@@ -212,7 +212,7 @@ Integrate real-time seismic data into the application and customize the visualiz
 
 Deploy the application on a local server or a cloud platform to enable real-time monitoring. Ensure the environment is appropriately configured and the necessary libraries and dependencies are installed.
 
-### The End Result
+## The End Result
 
 ![1718691253059](image/README/1718691253059.png)
 
