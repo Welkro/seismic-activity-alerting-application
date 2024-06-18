@@ -151,49 +151,57 @@ Here's a step-by-step guide to building the application:
 6. **Create a Client for Real-time Data:**
 
    ```python
-   ```python
-      from obspy.core import Stream
-      from obspy.clients.seedlink.easyseedlink import EasySeedLinkClient
-      import time
+   from obspy.core import Stream
+   from obspy.clients.seedlink.easyseedlink import EasySeedLinkClient
+   import time
 
-      class MyClient(EasySeedLinkClient):
-          def __init__(self, *args, **kwargs):
-              super().__init__(*args, **kwargs)
-              self.series = series
-              self.data = []
-              self.stream = Stream()
+   # Custom EasySeedLinkClient for receiving and processing seismic data
+   class MyClient(EasySeedLinkClient):
+       def __init__(self, *args, **kwargs):
+           super().__init__(*args, **kwargs)
+           self.series = series    # Reference to the chart series
+           self.data = []  # List to hold the data
+           self.stream = Stream()  # ObsPy stream to store trace data
 
-          def append_to_chart(self):
-              if self.data:
-                  x, y = self.data.pop(0)
-                  self.series.add(x, y)
-                  time.sleep(0.01)
+       # Append data to the chart
+       def append_to_chart(self):
+           if self.data:
+               x, y = self.data.pop(0)
+               self.series.add(x, y)
+               time.sleep(0.01)    # Sleep to control the data update rate
 
-          def on_data(self, trace):
-              print('Received trace:')
-              print(trace)
+       # Callback method when data is received
+       def on_data(self, trace):
+           print('Received trace:')
+           print(trace)
 
-              # Calculate the Nyquist frequency and set the lowpass filter cut-off
-              nyquist_freq = trace.stats.sampling_rate / 2
-              cutoff_freq = nyquist_freq * 0.4  # Setting cut-off at 40% of Nyquist frequency
+           # Calculate the Nyquist frequency and set the lowpass filter cut-off
+           nyquist_freq = trace.stats.sampling_rate / 2
+           cutoff_freq = nyquist_freq * 0.4  # Setting cut-off at 40% of Nyquist frequency
 
-              # Apply lowpass filter with the calculated cut-off frequency
-              trace.filter('lowpass', freq=cutoff_freq, corners=4, zerophase=True)
+           # Apply lowpass filter with the calculated cut-off frequency
+           trace.filter('lowpass', freq=cutoff_freq, corners=4, zerophase=True)
 
-              self.stream += trace
+           # Add the filtered trace to the stream
+           self.stream += trace
 
-              x_values_seconds = trace.times().tolist()
-              start_time = trace.stats.starttime.timestamp * 1000
-              x_values = [start_time + sec * 1000 for sec in x_values_seconds]
-              y_values = trace.data.tolist()
+           # Convert trace times to milliseconds for x-values
+           x_values_seconds = trace.times().tolist()
+           start_time = trace.stats.starttime.timestamp * 1000
+           x_values = [start_time + sec * 1000 for sec in x_values_seconds]
+           y_values = trace.data.tolist()
 
-              for x, y in zip(x_values, y_values):
-                  self.data.append((x, y))
-                  self.append_to_chart()
+           # Append the x- and y-values to the data list
+           for x, y in zip(x_values, y_values):
+               self.data.append((x, y))
+               self.append_to_chart()  # Update the chart with new data
 
-      client = MyClient('rtserve.iris.washington.edu:18000')
-      client.select_stream('WI', 'BIM', 'HHZ')
-      client.run()
+   # Initialize the client with the Seedlink server address
+   client = MyClient('rtserve.iris.washington.edu:18000')
+   # Select the stream to receive data from
+   client.select_stream('WI', 'BIM', 'HHZ')
+   # Start the client to begin receiving data
+   client.run()
    ```
 
 ### Data Integration and Customization
