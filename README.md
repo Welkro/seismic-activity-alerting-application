@@ -206,7 +206,7 @@ Deploy the application on a local server or a cloud platform to enable real-time
 
 ### The End Result
 
-![1718623057472](image/README/1718623057472.png)
+![1718691253059](image/README/1718691253059.png)
 
 ## Conclusion
 
