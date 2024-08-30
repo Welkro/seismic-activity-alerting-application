@@ -123,11 +123,11 @@ Here's a step-by-step guide to building the application:
    ```python
    series.set_line_color_lookup_table(
        steps=[
-           {'value': 350, 'color': lc.Color('red')},
-           {'value': 175, 'color': lc.Color('yellow')},
-           {'value': -175, 'color': lc.Color('green')},
-           {'value': -350, 'color': lc.Color('yellow')},
-           {'value': -400, 'color': lc.Color('red')}
+           {'value': 600, 'color': lc.Color('red')}, 
+           {'value': 300, 'color': lc.Color('yellow')},
+           {'value': -300, 'color': lc.Color('green')},
+           {'value': -600, 'color': lc.Color('yellow')},
+           {'value': -800, 'color': lc.Color('red')}, 
        ],
        look_up_property='y',
        interpolate=True,
@@ -138,16 +138,24 @@ Here's a step-by-step guide to building the application:
    Constant lines are added to the chart to highlight specific threshold values for amplitude. These lines are static and provide a visual reference for when the amplitude exceeds certain critical levels:
 
    ```python
-   constant_line = y_axis.add_constant_line().set_interaction_move_by_dragging(False)
-   constant_line.set_value(350)
-   constant_line.set_stroke(2.5, lc.Color(255, 0, 0))
+   constant_line_upper = y_axis.add_constant_line().set_interaction_move_by_dragging(False)
+   constant_line_upper.set_value(600)
+   constant_line_upper.set_stroke(2.5, lc.Color(255, 0, 0, 100))
 
-   constant_line2 = y_axis.add_constant_line().set_interaction_move_by_dragging(False)
-   constant_line2.set_value(-350)
-   constant_line2.set_stroke(2.5, lc.Color(255, 0, 0))
+   constant_line_lower = y_axis.add_constant_line().set_interaction_move_by_dragging(False)
+   constant_line_lower.set_value(-600)
+   constant_line_lower.set_stroke(2.5, lc.Color(255, 0, 0, 100))
+
+   constant_line_caution_upper = y_axis.add_constant_line().set_interaction_move_by_dragging(False)
+   constant_line_caution_upper.set_value(300)
+   constant_line_caution_upper.set_stroke(2.5, lc.Color(255, 255, 0, 100))
+
+   constant_line_caution_lower = y_axis.add_constant_line().set_interaction_move_by_dragging(False)
+   constant_line_caution_lower.set_value(-300)
+   constant_line_caution_lower.set_stroke(2.5, lc.Color(255, 255, 0, 100))
    ```
 
-   The red constant lines at values 350 and -350 indicate critical amplitude thresholds, providing an easy way to monitor when seismic activity exceeds these levels.
+   The red constant lines at values 600 and -600 indicate critical amplitude thresholds, and yellow lines at 300 and -300, indicating cautionary levels. The lines' opacity, set by the last value in their RGB codes, ensures visibility while allowing underlying data to remain clear, providing an easy way to monitor when seismic activity exceeds these levels.
 6. **Create a Client for Real-time Data:**
 
    ```python
@@ -199,7 +207,7 @@ Here's a step-by-step guide to building the application:
    # Initialize the client with the Seedlink server address
    client = MyClient('rtserve.iris.washington.edu:18000')
    # Select the stream to receive data from
-   client.select_stream('WI', 'BIM', 'HHZ')
+   client.select_stream('WI', 'CBE', 'HHZ')
    # Start the client to begin receiving data
    client.run()
    ```
@@ -214,7 +222,7 @@ Deploy the application on a local server or a cloud platform to enable real-time
 
 ## The End Result
 
-![1718691253059](image/README/1718691253059.png)
+![1724999970841](image/README/1724999970841.png)
 
 ## Conclusion
 
