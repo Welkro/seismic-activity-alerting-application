@@ -28,24 +28,31 @@ series = chart.add_line_series(
 y_axis = chart.get_default_y_axis()
 y_axis.set_title("Amplitude")
 
-# Add a constant line at 350 for the y-axis and set its appearance
-constant_line = y_axis.add_constant_line().set_interaction_move_by_dragging(False)
-constant_line.set_value(350)
-constant_line.set_stroke(2.5, lc.Color(255, 0, 0))
+# Set constant lines
+constant_line_upper = y_axis.add_constant_line().set_interaction_move_by_dragging(False)
+constant_line_upper.set_value(600)
+constant_line_upper.set_stroke(2.5, lc.Color(255, 0, 0))
 
-# Add another constant line at -350 for the y-axis and set its appearance
-constant_line2 = y_axis.add_constant_line().set_interaction_move_by_dragging(False)
-constant_line2.set_value(-350)
-constant_line2.set_stroke(2.5, lc.Color(255, 0, 0))
+constant_line_lower = y_axis.add_constant_line().set_interaction_move_by_dragging(False)
+constant_line_lower.set_value(-600)
+constant_line_lower.set_stroke(2.5, lc.Color(255, 0, 0))
+
+constant_line_caution_upper = y_axis.add_constant_line().set_interaction_move_by_dragging(False)
+constant_line_caution_upper.set_value(300)
+constant_line_caution_upper.set_stroke(2.5, lc.Color(255, 255, 0))
+
+constant_line_caution_lower = y_axis.add_constant_line().set_interaction_move_by_dragging(False)
+constant_line_caution_lower.set_value(-300)
+constant_line_caution_lower.set_stroke(2.5, lc.Color(255, 255, 0))
 
 # Set the color lookup table for the line series based on y-values
 series.set_line_color_lookup_table(
     steps=[
-        {'value': 350, 'color': lc.Color('red')},
-        {'value': 175, 'color': lc.Color('yellow')},
-        {'value': -175, 'color': lc.Color('green')},
-        {'value': -350, 'color': lc.Color('yellow')},
-        {'value': -400, 'color': lc.Color('red')},
+        {'value': 600, 'color': lc.Color('red')},
+        {'value': 300, 'color': lc.Color('yellow')},
+        {'value': 0, 'color': lc.Color('green')},
+        {'value': -300, 'color': lc.Color('yellow')},
+        {'value': -600, 'color': lc.Color('red')},
     ],
     look_up_property='y',
     interpolate=True,
@@ -55,11 +62,11 @@ series.set_line_color_lookup_table(
 # Set the color lookup table for the y-axis based on y-values
 chart.get_default_y_axis().set_color_lookup_table(
     steps=[
-        {'value': 350, 'color': lc.Color('red')},
-        {'value': 175, 'color': lc.Color('yellow')},
-        {'value': -175, 'color': lc.Color('green')},
-        {'value': -350, 'color': lc.Color('yellow')},
-        {'value': -400, 'color': lc.Color('red')},
+        {'value': 600, 'color': lc.Color('red')},
+        {'value': 300, 'color': lc.Color('yellow')},
+        {'value': 0, 'color': lc.Color('green')},
+        {'value': -300, 'color': lc.Color('yellow')},
+        {'value': -600, 'color': lc.Color('red')},
     ],
     look_up_property='y',
     interpolate=False,
@@ -110,6 +117,6 @@ class MyClient(EasySeedLinkClient):
 # Initialize the client with the Seedlink server address
 client = MyClient('rtserve.iris.washington.edu:18000')
 # Select the stream to receive data from
-client.select_stream('WI', 'BIM', 'HHZ')
+client.select_stream('WI', 'CBE', 'HHZ')
 # Start the client to begin receiving data
 client.run()
