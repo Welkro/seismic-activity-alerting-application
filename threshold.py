@@ -48,11 +48,11 @@ constant_line_caution_lower.set_stroke(2.5, lc.Color(255, 255, 0, 100))
 # Set the color lookup table for the line series based on y-values
 series.set_line_color_lookup_table(
     steps=[
-        {'value': 600, 'color': lc.Color('red')},    # Red at the highest danger level
-        {'value': 300, 'color': lc.Color('yellow')}, # Yellow as caution approaching danger
-        {'value': -300, 'color': lc.Color('green')}, # Green in the safe zone
-        {'value': -600, 'color': lc.Color('yellow')},# Yellow as caution approaching danger
-        {'value': -800, 'color': lc.Color('red')},   # Red at the lowest danger level
+        {'value': 600, 'color': lc.Color('red')}, 
+        {'value': 300, 'color': lc.Color('yellow')},
+        {'value': -300, 'color': lc.Color('green')},
+        {'value': -600, 'color': lc.Color('yellow')},
+        {'value': -800, 'color': lc.Color('red')}, 
     ],
     look_up_property='y',
     interpolate=True,
@@ -62,11 +62,11 @@ series.set_line_color_lookup_table(
 # Set the color lookup table for the y-axis based on y-values
 chart.get_default_y_axis().set_color_lookup_table(
     steps=[
-        {'value': 600, 'color': lc.Color('red')},    # Red at the highest danger level
-        {'value': 300, 'color': lc.Color('yellow')}, # Yellow as caution approaching danger
-        {'value': -300, 'color': lc.Color('green')}, # Green in the safe zone
-        {'value': -600, 'color': lc.Color('yellow')},# Yellow as caution approaching danger
-        {'value': -800, 'color': lc.Color('red')},   # Red at the lowest danger level
+        {'value': 600, 'color': lc.Color('red')},
+        {'value': 300, 'color': lc.Color('yellow')}, 
+        {'value': -300, 'color': lc.Color('green')},
+        {'value': -600, 'color': lc.Color('yellow')},
+        {'value': -800, 'color': lc.Color('red')},   
     ],
     look_up_property='y',
     interpolate=False,
