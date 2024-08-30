@@ -49,10 +49,10 @@ constant_line_caution_lower.set_stroke(2.5, lc.Color(255, 255, 0, 100))
 series.set_line_color_lookup_table(
     steps=[
         {'value': 600, 'color': lc.Color('red')}, 
-        {'value': 300, 'color': lc.Color('yellow')},
-        {'value': -300, 'color': lc.Color('green')},
-        {'value': -600, 'color': lc.Color('yellow')},
-        {'value': -800, 'color': lc.Color('red')}, 
+        {'value': 300, 'color': lc.Color('yellow')}, 
+        {'value': 0, 'color': lc.Color('green')},
+        {'value': -300, 'color': lc.Color('yellow')},
+        {'value': -600, 'color': lc.Color('red')},   
     ],
     look_up_property='y',
     interpolate=True,
@@ -63,13 +63,13 @@ series.set_line_color_lookup_table(
 chart.get_default_y_axis().set_color_lookup_table(
     steps=[
         {'value': 600, 'color': lc.Color('red')},
-        {'value': 300, 'color': lc.Color('yellow')}, 
-        {'value': -300, 'color': lc.Color('green')},
-        {'value': -600, 'color': lc.Color('yellow')},
-        {'value': -800, 'color': lc.Color('red')},   
+        {'value': 300, 'color': lc.Color('yellow')},
+        {'value': 0, 'color': lc.Color('green')},
+        {'value': -300, 'color': lc.Color('yellow')},
+        {'value': -600, 'color': lc.Color('red')},   
     ],
     look_up_property='y',
-    interpolate=False,
+    interpolate=True,
     percentage_values=False
 )
 

@@ -124,10 +124,10 @@ Here's a step-by-step guide to building the application:
    series.set_line_color_lookup_table(
        steps=[
            {'value': 600, 'color': lc.Color('red')}, 
-           {'value': 300, 'color': lc.Color('yellow')},
-           {'value': -300, 'color': lc.Color('green')},
-           {'value': -600, 'color': lc.Color('yellow')},
-           {'value': -800, 'color': lc.Color('red')}, 
+           {'value': 300, 'color': lc.Color('yellow')}, 
+           {'value': 0, 'color': lc.Color('green')},
+           {'value': -300, 'color': lc.Color('yellow')},
+           {'value': -600, 'color': lc.Color('red')},   
        ],
        look_up_property='y',
        interpolate=True,
@@ -222,7 +222,7 @@ Deploy the application on a local server or a cloud platform to enable real-time
 
 ## The End Result
 
-![1724999970841](image/README/1724999970841.png)
+![1725014495626](image/README/1725014495626.png)
 
 ## Conclusion
 
